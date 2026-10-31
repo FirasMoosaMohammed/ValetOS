@@ -121,11 +121,45 @@ Link reusable physical RFID cards or key fobs:
 
 ## 7. Progressive Web App (PWA) Support
 
-**Current Status**: **Not Supported**
+**Status**: **Fully Supported**
 
-- ValetOS is currently built as a responsive Single Page Application (SPA) using React 18 and Vite.
-- While the user interface is fully optimized for mobile devices and tablets used by valet staff, it does **not** currently include:
-  - Web App Manifest (`manifest.webmanifest` / `manifest.json`)
-  - Service Workers for offline asset caching
-  - Browser install prompts ("Add to Home Screen")
-- **PWA Roadmap**: PWA support can be integrated by adding `@vite-pwa/plugin` to enable offline ticket queue caching and home screen installation on Android/iOS devices.
+ValetOS includes full Progressive Web App (PWA) support powered by `vite-plugin-pwa`:
+- **Installable Application**: Desk operators and mobile valet staff can install ValetOS directly from their browser (Chrome, Edge, Safari, iOS Safari) as a standalone desktop or mobile application via "Install ValetOS" or "Add to Home Screen".
+- **Service Worker & Offline Caching**: Built-in Service Worker automatically caches static assets, styling, and application scripts, enabling near-instant launch times and resilience against intermittent WiFi or mobile cellular connections.
+- **Web App Manifest**: Configured with dark theme colors (`#09090b`), high-resolution responsive icons (192x192, 512x512, maskable icons, and Apple touch icons), and standalone display mode.
+
+---
+
+## 8. Hardware & RFID Reader Setup Guide
+
+ValetOS interfaces with physical desk hardware via the local Python bridge located in `hardware/rfid_bridge.py`:
+
+> For in-depth hardware documentation, vendor/product ID discovery, and systemd service installation, refer to [Hardware Setup Guide](hardware/HARDWARE_SETUP.md).
+
+### Quick RFID Setup:
+1. **Identify Reader Type**:
+   - **HID (Keyboard Emulation)**: Most standard 125 kHz or 13.56 MHz USB readers type the card UID automatically followed by Enter. Set `RFID_METHOD = "hid"` in `hardware/rfid_bridge.py`.
+   - **Serial (RS232 / USB-Serial)**: Set `RFID_METHOD = "serial"` and specify the COM port (e.g. `COM3` on Windows, `/dev/ttyUSB0` on Linux).
+2. **Launch the Bridge**:
+   ```bash
+   cd hardware
+   pip install -r requirements_bridge.txt
+   python rfid_bridge.py
+   ```
+3. **Frontend Connection**: The React top bar indicates hardware status with a green indicator (`RFID Connected`). When a card is scanned, the card UID is broadcast over WebSocket (`ws://localhost:8765`) to automatically fill check-in, checkout, or card registration forms.
+
+---
+
+## 9. Customer Interaction & Portal Architecture
+
+### Current Operational Model
+ValetOS is intentionally designed as a **high-security, internal facility operations platform**:
+- **Check-In**: Customers pull up to the valet bay. The attendant taps an RFID card or issues a printed ticket ID to the customer.
+- **Retrieval**: Customers return to the valet counter and hand their physical RFID card or ticket to the staff. Attendants tap the card to trigger exit scanning, dynamic fee calculation, and retrieval dispatch.
+- **Lost Token Recovery**: If a customer misplaces their physical token, staff use the **Lost Token** dialog to look up the vehicle/phone and trigger an automated SMS OTP to verify the customer before releasing the vehicle.
+
+### Customer Self-Service / Vehicle Tracking
+Currently, customer operations are handled through attendants at the front desk rather than an external customer login. If your facility requires customer-facing live tracking or self-retrieval requests:
+- Public endpoints can be routed from `/api/tickets/<pk>/` using an unauthenticated public token or signed URL (e.g. printed as a QR code on customer receipts).
+- Customers can scan the QR code to view live vehicle status (`parked`, `retrieval_pending`, `retrieved`) without requiring access to internal admin dashboards.
+

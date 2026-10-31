@@ -3,11 +3,9 @@
 db.sqlite3
 backend/db.sqlite3
 
-# Excluded scripts & docs
+# Excluded scripts
 seed.py
 backend/seed.py
-HARDWARE_SETUP.md
-hardware/HARDWARE_SETUP.md
 
 # Python
 __pycache__/

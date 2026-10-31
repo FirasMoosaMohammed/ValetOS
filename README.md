@@ -12,6 +12,7 @@ ValetOS is a modern, real-time valet parking operations platform engineered for 
 - **Lost Token Recovery via OTP**: Built-in customer lookup and secure OTP SMS verification workflow for misplaced RFID tokens.
 - **Dynamic Billing & Invoicing**: Configurable hourly rates, grace periods, minimum charges per vehicle class, and ESC/POS thermal receipt printing.
 - **Staff & Shift Management**: Shift clock-in/out tracking with active and completed task metrics.
+- **Progressive Web App (PWA)**: Built with `vite-plugin-pwa` featuring Service Worker asset caching, web app manifest, offline capability, and standalone mobile/desktop installation.
 - **Hardware Bridge**: High-speed WebSocket bridge connecting desktop USB RFID readers (HID keyboard emulation & RS232 serial) and thermal receipt printers.
 - **Role-Based Access Control**: Strict segregation of duties between Administrators and Valet Attendants with JWT authentication.
 
@@ -19,7 +20,7 @@ ValetOS is a modern, real-time valet parking operations platform engineered for 
 
 ## Architecture & Tech Stack
 
-- **Frontend**: React 18, Vite, React Router 6, Axios, Custom Modular CSS tokens.
+- **Frontend**: React 18, Vite, `vite-plugin-pwa`, React Router 6, Axios, Custom Modular CSS tokens.
 - **Backend**: Python 3, Django 4.2, Django REST Framework, SimpleJWT, SQLite / PostgreSQL.
 - **Hardware Integration**: Python WebSocket server, `python-escpos`, `pyserial`, `keyboard`.
 
@@ -122,15 +123,18 @@ Once logged in as an Administrator, configure your facility settings:
 
 ---
 
-## Hardware Bridge (Optional)
+## Hardware Bridge & RFID Setup (Optional)
 
-To connect physical USB RFID readers or ESC/POS thermal printers:
+To connect physical USB RFID readers (HID keyboard emulation or RS232 serial) or ESC/POS thermal printers:
+
 ```bash
 cd hardware
 pip install -r requirements_bridge.txt
 python rfid_bridge.py
 ```
 The bridge opens a WebSocket service on `ws://localhost:8765`, which the ValetOS web interface automatically detects.
+
+> For a full hardware setup walkthrough (identifying RFID reader types, finding COM ports, vendor/product IDs, and Linux systemd auto-start), see the [Hardware Setup Guide](hardware/HARDWARE_SETUP.md).
 
 ---
 
