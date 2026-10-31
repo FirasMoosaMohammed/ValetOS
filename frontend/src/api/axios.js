@@ -17,6 +17,12 @@ api.interceptors.response.use(
   res => res,
   async err => {
     const orig = err.config
+
+    // If the failed request was a login or refresh request, don't trigger the interceptor redirect
+    if (orig?.url?.includes('/api/auth/login') || orig?.url?.includes('/api/auth/refresh')) {
+      return Promise.reject(err)
+    }
+
     if (err.response?.status === 401 && !orig._retry) {
       orig._retry = true
       const refresh = localStorage.getItem('refresh_token')
@@ -28,11 +34,15 @@ api.interceptors.response.use(
           return api(orig)
         } catch {
           localStorage.clear()
-          window.location.href = '/login'
+          if (window.location.pathname !== '/login') {
+            window.location.href = '/login'
+          }
         }
       } else {
         localStorage.clear()
-        window.location.href = '/login'
+        if (window.location.pathname !== '/login') {
+          window.location.href = '/login'
+        }
       }
     }
     return Promise.reject(err)
