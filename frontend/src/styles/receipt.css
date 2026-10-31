@@ -1,0 +1,323 @@
+/* ── Screen Layout ─────────────────────────────────────────────── */
+.receipt-page {
+  min-height: 100vh;
+  background: var(--bg-primary, #f0f1f5);
+  padding: 0 0 60px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.receipt-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ── Toolbar (screen only) ─────────────────────────────────────── */
+.receipt-toolbar {
+  background: #1a1d26;
+  border-bottom: 1px solid #2a2d38;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.receipt-toolbar-brand {
+  font-family: 'Syne', 'DM Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0b429;
+  letter-spacing: -0.3px;
+}
+
+.receipt-toolbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── Paper ─────────────────────────────────────────────────────── */
+.receipt-paper {
+  width: 380px;
+  margin: 32px auto 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  color: #1a1a1a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ── Header ────────────────────────────────────────────────────── */
+.receipt-header {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.receipt-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  margin-bottom: 4px;
+}
+
+.receipt-logo-v {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #f0b429;
+  line-height: 1;
+}
+
+.receipt-logo-rest {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+}
+
+.receipt-logo-rest em {
+  font-style: normal;
+  color: #888;
+  font-weight: 400;
+}
+
+.receipt-parkingname {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.receipt-tagline {
+  font-size: 11px;
+  color: #999;
+  margin-top: 2px;
+  letter-spacing: 0.05em;
+}
+
+/* ── Dividers ──────────────────────────────────────────────────── */
+.receipt-divider {
+  margin: 16px 0;
+}
+.receipt-divider.dashed {
+  border: none;
+  border-top: 2px dashed #ddd;
+}
+.receipt-divider.solid {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* ── Section title ─────────────────────────────────────────────── */
+.receipt-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+/* ── Meta rows ─────────────────────────────────────────────────── */
+.receipt-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.receipt-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.rmeta-label {
+  font-size: 12px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.rmeta-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: #222;
+  text-align: right;
+}
+
+.rmeta-value.mono,
+.mono { font-family: 'DM Mono', 'Courier New', monospace; }
+
+.vehicle-highlight {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.04em;
+}
+
+/* ── Fee block ─────────────────────────────────────────────────── */
+.receipt-fee-block {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.receipt-fee-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+  padding: 3px 0;
+}
+
+.receipt-fee-note {
+  font-size: 11px;
+  color: #22c55e;
+  text-align: center;
+  margin: 6px 0;
+  font-style: italic;
+}
+
+.receipt-total-row {
+  border-top: 1px solid #ddd;
+  margin-top: 8px;
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+}
+
+.receipt-total-amount {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+}
+
+.receipt-payment-method {
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.payment-badge {
+  display: inline-block;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: 'DM Mono', monospace;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+.payment-badge.paid {
+  background: #dcfce7;
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+
+/* ── Footer ────────────────────────────────────────────────────── */
+.receipt-footer {
+  text-align: center;
+  padding-top: 4px;
+}
+
+.receipt-thankyou {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.receipt-footer-note {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.receipt-barcode {
+  margin: 16px auto 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0;
+  color: #bbb;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.receipt-receipt-no {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #ccc;
+  letter-spacing: 0.1em;
+}
+
+/* ── Print hint ────────────────────────────────────────────────── */
+.receipt-print-hint {
+  width: 380px;
+  margin: 20px auto 0;
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.receipt-print-hint p + p { margin-top: 4px; }
+
+/* ── @media print ──────────────────────────────────────────────── */
+@media print {
+  /* Hide everything except the paper */
+  .no-print { display: none !important; }
+
+  body, html {
+    background: #fff !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .receipt-page {
+    background: #fff;
+    padding: 0;
+  }
+
+  .receipt-paper {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 20px 24px;
+  }
+
+  @page {
+    size: A5 portrait;
+    margin: 10mm;
+  }
+}

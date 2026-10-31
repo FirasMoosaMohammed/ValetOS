@@ -1,0 +1,441 @@
+.entry-exit-page { max-width: 960px; }
+
+.entry-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Panels ── */
+.panel-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.panel-hint {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 18px;
+}
+
+/* ── RFID row ── */
+.rfid-scan-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.rfid-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: rgba(240, 180, 41, 0.1);
+  border: 1px solid rgba(240, 180, 41, 0.3);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rfid-icon-wrap.exit {
+  background: rgba(239,68,68,0.1);
+  border-color: rgba(239,68,68,0.3);
+}
+
+.rfid-icon {
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.rfid-icon-wrap.exit .rfid-icon { color: var(--red); }
+
+.scan-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Info grid ── */
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  text-align: right;
+}
+
+/* ── Free slots ── */
+.free-slots-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.slot-chip {
+  background: var(--bg-input);
+  border: 1px solid var(--border-hi);
+  border-radius: 5px;
+  color: var(--text-2);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  transition: all var(--transition);
+}
+
+.slot-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(240,180,41,0.06);
+}
+
+/* ── Exit session highlight ── */
+.exit-panel { border-color: rgba(239,68,68,0.25); }
+
+.session-highlight {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.session-vehicle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.session-name {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: 2px;
+}
+
+/* ── Fee box ── */
+.fee-box {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+
+.fee-box-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.fee-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 4px 0;
+}
+
+.fee-divider {
+  border-top: 1px dashed var(--border-color);
+  margin: 8px 0;
+}
+
+.fee-row.fee-total {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.fee-amount {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ── Payment method selector ── */
+.payment-method-row {
+  display: flex;
+  gap: 8px;
+}
+
+.payment-method-btn {
+  flex: 1;
+  padding: 10px 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.payment-method-btn:hover {
+  border-color: var(--border-hi);
+  color: var(--text-primary);
+}
+
+.payment-method-btn.active {
+  border-color: var(--accent);
+  background: rgba(240,180,41,0.08);
+  color: var(--accent);
+}
+
+/* ── Exit success ── */
+.exit-success-panel {
+  text-align: center;
+  padding: 40px 32px;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(34,197,94,0.12);
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--green);
+  margin: 0 auto 16px;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.success-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+
+.success-fee {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  background: rgba(240,180,41,0.08);
+  border: 1px solid rgba(240,180,41,0.2);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  margin-bottom: 20px;
+}
+
+.success-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Vehicle type pill ── */
+.vehicle-type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+/* ── Slot availability badge ── */
+.slot-availability-badge {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.avail-ok {
+  color: var(--green);
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: var(--radius);
+  display: block;
+  padding: 8px 12px;
+}
+
+.avail-none {
+  color: var(--red);
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: var(--radius);
+  display: block;
+  padding: 8px 12px;
+}
+
+.avail-loading {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Auto-assign note ── */
+.auto-assign-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+/* ── Entry success panel ── */
+.entry-success-panel {
+  text-align: center;
+  padding: 32px 28px;
+}
+
+.success-check {
+  width: 56px;
+  height: 56px;
+  background: rgba(34,197,94,0.1);
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--green);
+  margin: 0 auto 14px;
+}
+
+.entry-success-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* ── Assignment banner ── */
+.assignment-banner {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.assignment-item {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.assignment-item.slot-assignment {
+  border-right: none;
+  background: rgba(240,180,41,0.04);
+}
+
+.assignment-item.attendant-assignment {
+  background: rgba(59,130,246,0.04);
+}
+
+.assignment-divider {
+  width: 1px;
+  background: var(--border-color);
+  align-self: stretch;
+}
+
+.assign-icon {
+  font-size: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.slot-assignment .assign-icon  { color: var(--accent); }
+.attendant-assignment .assign-icon { color: var(--blue); }
+
+.assign-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.assign-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.assign-value {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.slot-assignment .assign-value { color: var(--accent); }
+.attendant-assignment .assign-value { color: var(--blue); }
+
+.assign-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.assign-sub.warn {
+  color: var(--accent-2);
+}
+
+.success-vehicle-line {
+  font-size: 13px;
+  color: var(--text-secondary);
+}

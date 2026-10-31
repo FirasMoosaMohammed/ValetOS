@@ -1,0 +1,76 @@
+.revenue-summary {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rev-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 130px;
+  flex: 1;
+  transition: background var(--transition);
+}
+
+.rev-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rev-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.rev-value.accent { color: var(--accent); }
+
+.rev-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── Rates grid ── */
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.rate-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.rate-card:hover { border-color: var(--border-hi); }
+
+.rate-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.rate-icon { font-size: 22px; }
+
+.rate-vehicle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
