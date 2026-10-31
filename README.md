@@ -92,6 +92,8 @@ ValetOS is a modern, real-time valet parking operations platform engineered for 
 
 ## User & Account Management
 
+> For an in-depth guide on account provisioning, attendant shifts, and facility configuration, see the dedicated [Account Setup Guide](ACCOUNT_SETUP.md).
+
 ### Creating an Admin Account
 To create the initial administrator account, run Django's `createsuperuser` command from the `backend/` directory:
 
@@ -135,3 +137,4 @@ The bridge opens a WebSocket service on `ws://localhost:8765`, which the ValetOS
 ## License
 
 This project is licensed under the MIT License.
+
